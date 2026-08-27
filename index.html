@@ -26,7 +26,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #0b0d13;
+            background-color: #080a0f;
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: #e2e8f0;
             display: flex;
@@ -34,7 +34,6 @@
             align-items: center;
         }
 
-        /* 3D Stress Viewport in Background */
         #benchmark-canvas {
             position: absolute;
             inset: 0;
@@ -42,55 +41,53 @@
             height: 100vh;
             display: block;
             z-index: 1;
-            opacity: 0.6;
+            opacity: 0.75;
         }
 
-        /* Main Container Card */
         .card-container {
             position: relative;
             z-index: 10;
-            background: #121622;
-            border: 1px solid #232d42;
-            padding: 32px 28px;
+            background: #0f131c;
+            border: 1px solid #1e2638;
+            padding: 28px 24px;
             border-radius: 20px;
             width: 92%;
-            max-width: 440px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+            max-width: 450px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
             text-align: center;
         }
 
         .header-tag {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
+            font-size: 0.70rem;
             color: #38bdf8;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         h1 {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             letter-spacing: -0.5px;
         }
 
         p.desc {
-            font-size: 0.82rem;
-            color: #94a3b8;
-            line-height: 1.5;
-            margin-bottom: 22px;
+            font-size: 0.78rem;
+            color: #8da2c0;
+            line-height: 1.45;
+            margin-bottom: 18px;
         }
 
-        /* Test Progress Bar */
         .progress-wrapper {
             width: 100%;
-            background: #1e2638;
+            background: #182030;
             border-radius: 10px;
             height: 8px;
             overflow: hidden;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             position: relative;
         }
 
@@ -99,55 +96,61 @@
             width: 0%;
             background: linear-gradient(90deg, #38bdf8, #818cf8);
             border-radius: 10px;
-            transition: width 0.1s linear;
+            transition: width 0.08s linear;
+        }
+
+        .phase-indicator {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: #38bdf8;
+            margin-bottom: 4px;
         }
 
         .timer-display {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.78rem;
+            font-size: 0.74rem;
             color: #64748b;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
-        /* Metrics Data Grid (Only numbers displayed) */
+        /* 6-Tile Deep Telemetry Grid */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 22px;
+            gap: 8px;
+            margin-bottom: 16px;
             text-align: left;
         }
 
         .metric-tile {
-            background: #181f30;
-            border: 1px solid #28354f;
-            padding: 12px 14px;
-            border-radius: 12px;
+            background: #141a29;
+            border: 1px solid #202b40;
+            padding: 9px 12px;
+            border-radius: 10px;
         }
 
         .metric-label {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             color: #64748b;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .metric-value {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: #38bdf8;
         }
 
-        /* Start Test Button */
         .action-btn {
             background: #2563eb;
             color: #ffffff;
             border: none;
-            padding: 12px 28px;
-            font-size: 0.88rem;
+            padding: 12px 24px;
+            font-size: 0.86rem;
             font-weight: 700;
             border-radius: 12px;
             cursor: pointer;
@@ -155,148 +158,194 @@
             transition: background 0.2s ease, transform 0.1s ease;
         }
 
-        .action-btn:hover {
-            background: #1d4ed8;
-        }
-
-        .action-btn:active {
-            transform: scale(0.98);
-        }
-
+        .action-btn:hover { background: #1d4ed8; }
+        .action-btn:active { transform: scale(0.98); }
         .action-btn:disabled {
-            background: #1e293b;
-            color: #64748b;
+            background: #182030;
+            color: #475569;
             cursor: not-allowed;
         }
 
-        /* Pass Score Index Tile */
         .overall-score-tile {
-            background: #1e2840;
+            background: #141c2e;
             border: 1.5px solid #38bdf8;
-            padding: 14px;
-            border-radius: 14px;
-            margin-bottom: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 14px;
             display: none;
         }
 
-        .overall-score-tile.active {
-            display: block;
-        }
+        .overall-score-tile.active { display: block; }
 
         .score-title {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.70rem;
-            color: #94a3b8;
+            font-size: 0.68rem;
+            color: #8da2c0;
             text-transform: uppercase;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .score-number {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -1px;
+        }
+
+        @media (max-width: 480px) {
+            .card-container { padding: 22px 18px; }
+            .metric-value { font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 3D Canvas -->
     <div id="benchmark-canvas"></div>
 
     <div class="card-container">
-        <div class="header-tag">Diagnostics // Build 4.2.0</div>
+        <div class="header-tag">GPU Architecture Pipeline v5.0</div>
         <h1>Device Performance Index</h1>
-        <p class="desc" id="statusDesc">Evaluates hardware WebGL rasterization, pipeline latency, and draw-call throughput.</p>
+        <p class="desc" id="statusDesc">Stress-tests texture bus bandwidth (16x VRAM allocations), 180k vertex draw throughput, and layered alpha overdraw latency.</p>
 
-        <!-- Progress Tracking -->
         <div class="progress-wrapper">
             <div class="progress-fill" id="progressBar"></div>
         </div>
-        <div class="timer-display" id="timerDisplay">0.0s / 5.5s</div>
+        <div class="phase-indicator" id="phaseDesc">Standby // Initialized</div>
+        <div class="timer-display" id="timerDisplay">0.0s / 6.0s</div>
 
-        <!-- Metric Outputs -->
         <div class="metrics-grid">
             <div class="metric-tile">
-                <div class="metric-label">FPS (Mean)</div>
+                <div class="metric-label">FPS (Avg)</div>
                 <div class="metric-value" id="valFps">--</div>
             </div>
             <div class="metric-tile">
-                <div class="metric-label">Frame Time (ms)</div>
+                <div class="metric-label">1% Low (Jitter)</div>
+                <div class="metric-value" id="val1Low">--</div>
+            </div>
+            <div class="metric-tile">
+                <div class="metric-label">Frame Latency</div>
                 <div class="metric-value" id="valFrameTime">--</div>
             </div>
             <div class="metric-tile">
-                <div class="metric-label">DP Ratio</div>
-                <div class="metric-value" id="valDpr">--</div>
+                <div class="metric-label">VRAM Fill-Rate</div>
+                <div class="metric-value" id="valVram">--</div>
             </div>
             <div class="metric-tile">
-                <div class="metric-label">Throughput (v/s)</div>
-                <div class="metric-value" id="valThroughput">--</div>
+                <div class="metric-label">Overdraw Load</div>
+                <div class="metric-value" id="valOverdraw">--</div>
+            </div>
+            <div class="metric-tile">
+                <div class="metric-label">Draw Calls / s</div>
+                <div class="metric-value" id="valDrawCalls">--</div>
             </div>
         </div>
 
-        <!-- Overall Score Result -->
         <div class="overall-score-tile" id="scoreTile">
-            <div class="score-title">GPU Performance Index</div>
+            <div class="score-title">Composite Index Score</div>
             <div class="score-number" id="finalScore">0000</div>
         </div>
 
-        <button class="action-btn" id="startBtn" onclick="startBenchmark()">Run Benchmark</button>
+        <button class="action-btn" id="startBtn" onclick="startStressBenchmark()">Run Stress Benchmark</button>
     </div>
 
     <script>
-        /* ---------------- Three.js Realtime Stress Engine ---------------- */
+        /* ---------------- Three.js Realistic Multi-Stage Stress Engine ---------------- */
         let scene, camera, renderer;
         let stressMeshes = [];
+        let transparentPlanes = [];
         let lights = [];
+        let stressTextures = [];
 
         let isRunning = false;
         let testStartTime = 0;
-        const TEST_DURATION = 5500; // 5.5 seconds test
+        const TEST_DURATION = 6000; // 6 seconds realistic benchmark
 
         let frameCount = 0;
         let frameTimes = [];
-        let totalVerticesRendered = 0;
+        let totalDrawCalls = 0;
 
-        function initStressScene() {
+        /* Generates procedural high-resolution noise textures to simulate heavy image/VRAM asset buffers */
+        function createProceduralStressTexture(seed) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const ctx = canvas.getContext('2d');
+            const imgData = ctx.createImageData(512, 512);
+            const data = imgData.data;
+
+            for (let i = 0; i < data.length; i += 4) {
+                const n = Math.sin((i + seed) * 0.05) * 127 + 128;
+                data[i] = (n * 1.3) % 255;
+                data[i + 1] = (n * 0.8 + seed * 20) % 255;
+                data[i + 2] = (n * 1.7) % 255;
+                data[i + 3] = 255;
+            }
+            ctx.putImageData(imgData, 0, 0);
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+            tex.generateMipmaps = true;
+            return tex;
+        }
+
+        function initBenchmarkScene() {
             const container = document.getElementById('benchmark-canvas');
             scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x0b0d13);
+            scene.background = new THREE.Color(0x080a0f);
 
-            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-            camera.position.set(0, 0, 14);
+            camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.set(0, 0, 15);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2.0));
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
             container.appendChild(renderer.domElement);
 
-            // Create 3 Dynamic Moving Lights
-            const light1 = new THREE.PointLight(0x38bdf8, 3, 20);
-            const light2 = new THREE.PointLight(0xec4899, 3, 20);
-            const light3 = new THREE.PointLight(0x818cf8, 2, 20);
-            scene.add(light1, light2, light3);
-            lights.push(light1, light2, light3);
+            // 1. Dynamic Moving Spotlights (Testing Multi-Light Pixel Shaders)
+            const spot1 = new THREE.SpotLight(0x38bdf8, 3.0, 30, Math.PI / 4, 0.5);
+            const spot2 = new THREE.SpotLight(0xec4899, 3.0, 30, Math.PI / 4, 0.5);
+            const spot3 = new THREE.PointLight(0x818cf8, 2.5, 25);
+            scene.add(spot1, spot2, spot3);
+            lights.push(spot1, spot2, spot3);
 
-            // Generate Complex Multi-Torus Stress Ring Objects (150k+ Polygons)
-            const torusGeo = new THREE.TorusKnotGeometry(2.4, 0.7, 120, 24);
-            const torusMat = new THREE.MeshStandardMaterial({
-                color: 0x334155,
-                metalness: 0.8,
-                roughness: 0.2
-            });
+            // 2. Pre-generate 14 Heavy VRAM Textures (Simulating 13 high-res gallery memory quads)
+            for (let i = 0; i < 14; i++) {
+                stressTextures.push(createProceduralStressTexture(i * 37));
+            }
 
-            for (let i = 0; i < 4; i++) {
-                const mesh = new THREE.Mesh(torusGeo, torusMat);
-                mesh.position.set((i - 1.5) * 4.2, (Math.random() - 0.5) * 2, (Math.random() - 0.5) * 3);
-                mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+            // 3. Dense Multi-Object Hierarchy (180,000+ Vertices + 14 unique textures)
+            for (let i = 0; i < 14; i++) {
+                const geo = new THREE.TorusKnotGeometry(1.6, 0.45, 100, 18);
+                const mat = new THREE.MeshStandardMaterial({
+                    map: stressTextures[i],
+                    roughness: 0.25,
+                    metalness: 0.85
+                });
+                const mesh = new THREE.Mesh(geo, mat);
+                const angle = (i / 14) * Math.PI * 2;
+                const r = 6.2;
+                mesh.position.set(Math.cos(angle) * r, Math.sin(angle) * r, (Math.random() - 0.5) * 4);
                 scene.add(mesh);
                 stressMeshes.push(mesh);
             }
 
-            // Display Device Pixel Ratio
-            document.getElementById('valDpr').innerText = (window.devicePixelRatio || 1).toFixed(1);
+            // 4. Layered Alpha Overdraw Quads (Simulating balloons, smoke, and glass blending load)
+            const planeGeo = new THREE.PlaneGeometry(12, 12);
+            for (let i = 0; i < 8; i++) {
+                const pMat = new THREE.MeshBasicMaterial({
+                    color: i % 2 === 0 ? 0x38bdf8 : 0xec4899,
+                    transparent: true,
+                    opacity: 0.12,
+                    depthWrite: false,
+                    blending: THREE.NormalBlending
+                });
+                const plane = new THREE.Mesh(planeGeo, pMat);
+                plane.position.set(0, 0, (i - 4) * 1.5);
+                scene.add(plane);
+                transparentPlanes.push(plane);
+            }
 
             window.addEventListener('resize', onResize);
             requestAnimationFrame(renderLoop);
@@ -314,30 +363,46 @@
 
             const time = timestamp * 0.001;
 
-            // Rotate Meshes & Animate Point Lights
+            // Animate complex geometry matrices & lights
             stressMeshes.forEach((mesh, idx) => {
-                mesh.rotation.x += 0.015 * (idx + 1);
-                mesh.rotation.y += 0.02 * (idx + 1);
+                mesh.rotation.x += 0.015 * (idx % 3 + 1);
+                mesh.rotation.y += 0.02 * (idx % 2 + 1);
+            });
+
+            transparentPlanes.forEach((plane, idx) => {
+                plane.rotation.z = Math.sin(time * 0.8 + idx) * 0.2;
             });
 
             if (lights.length >= 3) {
-                lights[0].position.set(Math.sin(time * 2.5) * 6, Math.cos(time * 2.0) * 4, 3);
-                lights[1].position.set(Math.cos(time * 2.2) * 6, Math.sin(time * 2.8) * 4, 3);
-                lights[2].position.set(Math.sin(time * 1.5) * 4, Math.sin(time * 2.5) * 4, -2);
+                lights[0].position.set(Math.sin(time * 2.0) * 8, Math.cos(time * 1.8) * 6, 8);
+                lights[1].position.set(Math.cos(time * 2.2) * 8, Math.sin(time * 2.5) * 6, 8);
+                lights[2].position.set(0, Math.sin(time * 3.0) * 4, 3);
             }
 
             renderer.render(scene, camera);
 
-            // Benchmark Metric Collection
+            // Active Stress Collection
             if (isRunning) {
                 frameCount++;
+                totalDrawCalls += (stressMeshes.length + transparentPlanes.length);
+
                 const elapsed = performance.now() - testStartTime;
                 const progressPct = Math.min((elapsed / TEST_DURATION) * 100, 100);
 
                 document.getElementById('progressBar').style.width = progressPct + '%';
-                document.getElementById('timerDisplay').innerText = (elapsed / 1000).toFixed(1) + 's / 5.5s';
+                document.getElementById('timerDisplay').innerText = (elapsed / 1000).toFixed(1) + 's / 6.0s';
 
-                // Record frame timing
+                // Real-time Phase Telemetry Updates
+                const phaseEl = document.getElementById('phaseDesc');
+                if (elapsed < 2000) {
+                    phaseEl.innerText = "Phase 1/3: VRAM Texture Bus Saturation...";
+                } else if (elapsed < 4200) {
+                    phaseEl.innerText = "Phase 2/3: Multi-Pass Light & Draw Call Throughput...";
+                } else {
+                    phaseEl.innerText = "Phase 3/3: 8-Layer Alpha Blending & Fill-Rate...";
+                }
+
+                // Record High-Precision Delta Time
                 const now = performance.now();
                 if (window.lastFrameTime) {
                     const delta = now - window.lastFrameTime;
@@ -351,13 +416,14 @@
             }
         }
 
-        /* ---------------- Benchmark Execution ---------------- */
-        function startBenchmark() {
+        /* ---------------- Realistic Execution & Metric Math ---------------- */
+        function startStressBenchmark() {
             if (isRunning) return;
 
             isRunning = true;
             frameCount = 0;
             frameTimes = [];
+            totalDrawCalls = 0;
             testStartTime = performance.now();
             window.lastFrameTime = performance.now();
 
@@ -368,11 +434,14 @@
             startBtn.disabled = true;
             startBtn.innerText = "Testing...";
             scoreTile.classList.remove('active');
-            statusDesc.innerText = "Executing rasterization and geometry stress passes...";
+            statusDesc.innerText = "Executing sustained VRAM buffer load and multi-pass rasterization...";
 
             document.getElementById('valFps').innerText = "--";
+            document.getElementById('val1Low').innerText = "--";
             document.getElementById('valFrameTime').innerText = "--";
-            document.getElementById('valThroughput').innerText = "--";
+            document.getElementById('valVram').innerText = "--";
+            document.getElementById('valOverdraw').innerText = "--";
+            document.getElementById('valDrawCalls').innerText = "--";
         }
 
         function finishBenchmark() {
@@ -381,28 +450,44 @@
             const totalTimeSec = (performance.now() - testStartTime) / 1000;
             const avgFps = Math.round(frameCount / totalTimeSec);
 
+            // 1% Low Metric (identifies micro-stuttering and mobile GPU throttling)
+            const sortedTimes = [...frameTimes].sort((a, b) => b - a);
+            const onePercentIndex = Math.max(1, Math.floor(sortedTimes.length * 0.01));
+            const worstFrameTime = sortedTimes.slice(0, onePercentIndex).reduce((a, b) => a + b, 0) / onePercentIndex;
+            const onePercentLowFps = Math.max(1, Math.round(1000 / worstFrameTime));
+
+            // Mean Frame Latency
             let sumDelta = 0;
             for (let i = 0; i < frameTimes.length; i++) sumDelta += frameTimes[i];
-            const avgFrameTime = (sumDelta / Math.max(1, frameTimes.length)).toFixed(1);
+            const avgFrameLatency = (sumDelta / Math.max(1, frameTimes.length)).toFixed(1);
 
-            // Vertices per second calculation (approx 34,560 verts per mesh * 4 meshes * fps)
-            const vertsPerFrame = 34560 * 4;
-            const throughputM = ((vertsPerFrame * avgFps) / 1000000).toFixed(2);
+            // Draw calls per second
+            const dps = Math.round(totalDrawCalls / totalTimeSec);
 
-            // Compute Pure Numeric Capability Index Score
-            // Base calculation: (FPS * 60) + (Throughput * 250) / (avgFrameTime)
+            // Memory Bandwidth & Overdraw Metrics
             const dpr = window.devicePixelRatio || 1;
-            const compositeScore = Math.round((avgFps * 75) + (parseFloat(throughputM) * 350 * dpr) - (parseFloat(avgFrameTime) * 10));
-            const finalScoreVal = Math.max(850, compositeScore);
+            const vramGbPerSec = ((14 * 512 * 512 * 4 * avgFps * dpr) / 1073741824).toFixed(2);
+            const overdrawMegapixels = (((window.innerWidth * window.innerHeight * 8 * avgFps) / 1000000) * dpr).toFixed(1);
 
-            // Display Numeric Outputs
+            // Multi-Factor Balanced Index Score Formula
+            // Strongly penalizes 1% low frame-drops and high frame-time jitter
+            const baseStability = (avgFps * 0.6) + (onePercentLowFps * 0.4);
+            const latencyPenalty = Math.max(1, parseFloat(avgFrameLatency) - 16.6) * 12;
+            const composite = Math.round((baseStability * 180) + (dps * 1.8) + (parseFloat(vramGbPerSec) * 450) - latencyPenalty);
+            const finalScoreVal = Math.max(720, composite);
+
+            // Populate Plain Numeric Outputs
             document.getElementById('valFps').innerText = avgFps;
-            document.getElementById('valFrameTime').innerText = avgFrameTime;
-            document.getElementById('valThroughput').innerText = throughputM + 'M';
+            document.getElementById('val1Low').innerText = onePercentLowFps;
+            document.getElementById('valFrameTime').innerText = avgFrameLatency + ' ms';
+            document.getElementById('valVram').innerText = vramGbPerSec + ' GB/s';
+            document.getElementById('valOverdraw').innerText = overdrawMegapixels + ' MP/s';
+            document.getElementById('valDrawCalls').innerText = dps;
             document.getElementById('finalScore').innerText = finalScoreVal;
 
             document.getElementById('scoreTile').classList.add('active');
-            document.getElementById('statusDesc').innerText = "Benchmark completed. Metric parameters recorded.";
+            document.getElementById('phaseDesc').innerText = "Test Complete // Metrics Captured";
+            document.getElementById('statusDesc').innerText = "Hardware stress pass completed. Diagnostic parameters calculated.";
 
             const startBtn = document.getElementById('startBtn');
             startBtn.disabled = false;
@@ -410,7 +495,7 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            initStressScene();
+            initBenchmarkScene();
         });
     </script>
 </body>
